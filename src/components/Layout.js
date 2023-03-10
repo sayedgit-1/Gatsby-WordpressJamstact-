@@ -22,6 +22,10 @@ const Layout = ({ children }) => {
         <Link to="/" className="home">
           {title}
         </Link>
+
+        <Link to="/blog" className="blog">
+          Blogs
+        </Link>
       </header>
       <main>{children}</main>
     </>

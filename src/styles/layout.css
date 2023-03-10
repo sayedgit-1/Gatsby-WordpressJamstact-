@@ -27,3 +27,8 @@ main {
   max-width: 54ch;
   width: 90vw;
 }
+
+.blog {
+  text-decoration: none;
+  margin-left: 50px;
+}
