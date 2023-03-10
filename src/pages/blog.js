@@ -5,34 +5,35 @@ import Layout from "../components/Layout";
 export const query = graphql`
   query {
     wpcontent {
-      pages {
+      posts {
         nodes {
           id
           title
           uri
+          excerpt
         }
       }
     }
   }
 `;
 
-const Indexpage = ({ data }) => {
-  const pages = data.wpcontent.pages.nodes;
+const Blog = ({ data }) => {
+  const posts = data.wpcontent.posts.nodes;
   return (
     <Layout>
-      {pages.map((page) => (
-        <article key={page.id}>
+      {posts.map((post) => (
+        <article key={post.id}>
           <h2>
             <Link
-              to={page.uri}
-              dangerouslySetInnerHTML={{ __html: page.title }}
+              to={`/blog${post.uri}`}
+              dangerouslySetInnerHTML={{ __html: post.title }}
             />
           </h2>
-          <div dangerouslySetInnerHTML={{ __html: page.url }} />
+          <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
         </article>
       ))}
     </Layout>
   );
 };
 
-export default Indexpage;
+export default Blog;

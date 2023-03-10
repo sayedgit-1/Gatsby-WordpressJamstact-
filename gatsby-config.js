@@ -8,5 +8,14 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
-  plugins: [],
-}
+  plugins: [
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        typeName: `WPGraphQL`,
+        fieldName: `wpcontent`,
+        url: `https://gatsycms.vantagecircle.com/graphql`,
+      },
+    },
+  ],
+};
